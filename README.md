@@ -5,12 +5,11 @@
 
 Source of my portfolio, live at **[abdulbasit264.github.io](https://abdulbasit264.github.io)**.
 
-One hand-written `index.html`, with no framework and no build step. It includes two live demos from the ledger I built:
+One hand-written `index.html`, with no framework, no build step and no images. Everything is HTML, CSS and SVG:
 
-- **Floats are not money:** shows why `(19.99 * 10000)` truncates to `199899` and how parsing the digits keeps it exact.
-- **A journal that notices edits:** a SHA-256 hash chain where editing any entry breaks the chain from that point on.
-
-The core ideas behind both are open-sourced in [exact-ledger](https://github.com/abdulbasit264/exact-ledger).
+- **Hero:** floating glass product cards with mouse parallax.
+- **See it work:** an animated walkthrough of the platform's core flow. An air waybill is scanned, the AI extracts the fields, the pre-alert email types itself and the ledger posts the invoice. It uses sample data and respects `prefers-reduced-motion`.
+- The flagship case study, the other platforms, [exact-ledger](https://github.com/abdulbasit264/exact-ledger), experience and skills.
 
 ## Checks
 

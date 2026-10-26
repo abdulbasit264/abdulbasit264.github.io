@@ -69,6 +69,53 @@ h1{font-size:clamp(44px,7.4vw,92px);line-height:1.02;letter-spacing:-.045em;font
 .stat .l{color:var(--muted);font-size:14px}
 @media (max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
 
+
+/* hero visual */
+.hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:40px;align-items:center}
+@media (max-width:980px){.hero-grid{grid-template-columns:1fr}.hero-vis{height:380px!important;margin-top:10px}}
+header h1{font-size:clamp(44px,6.4vw,84px)}
+.hero-vis{position:relative;height:470px}
+.hc{position:absolute;padding:16px 18px;border-radius:18px;animation:bob 7s ease-in-out infinite;will-change:transform}
+.hc .t{font-size:11.5px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em}
+.hc .big{font-size:26px;font-weight:800;letter-spacing:-.02em}
+.hc .row2{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+.c1{top:0;left:6%;width:250px}
+.c2{top:150px;right:0;width:270px;animation-delay:-2s}
+.c3{bottom:40px;left:0;width:250px;animation-delay:-4s}
+.c4{bottom:0;right:10%;width:190px;animation-delay:-5.5s}
+@keyframes bob{50%{translate:0 -12px}}
+.bars{display:flex;align-items:flex-end;gap:5px;height:46px;margin-top:10px}
+.bars i{flex:1;border-radius:4px 4px 2px 2px;background:linear-gradient(180deg,var(--a1),#2563eb);transform-origin:bottom;animation:grow 2.4s cubic-bezier(.2,.9,.3,1) both}
+@keyframes grow{from{transform:scaleY(.1);opacity:.3}}
+.up{font:600 12px "JetBrains Mono",monospace;color:var(--a3);padding:2px 7px;border-radius:6px;background:rgba(52,211,153,.12)}
+.doc{display:flex;gap:12px;align-items:center}
+.doc .ico{width:38px;height:46px;border-radius:8px;background:linear-gradient(180deg,#f1f5f9,#cbd5e1);position:relative;overflow:hidden;flex:none}
+.doc .ico::after{content:"";position:absolute;left:0;right:0;height:14px;background:linear-gradient(180deg,transparent,rgba(56,189,248,.9));animation:scan2 2.2s ease-in-out infinite}
+@keyframes scan2{from{top:-14px}to{top:46px}}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.chips span{font:600 11.5px "JetBrains Mono",monospace;padding:4px 8px;border-radius:7px;background:rgba(125,211,252,.12);border:1px solid rgba(125,211,252,.25);color:#dbe6ff;animation:pop 4s ease-in-out infinite}
+.chips span:nth-child(2){animation-delay:.25s}.chips span:nth-child(3){animation-delay:.5s}.chips span:nth-child(4){animation-delay:.75s}
+@keyframes pop{0%,8%{opacity:0;transform:translateY(6px)}18%,85%{opacity:1;transform:none}100%{opacity:0}}
+.shield{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:rgba(52,211,153,.15);color:var(--a3);font-weight:800;box-shadow:0 0 22px rgba(52,211,153,.35)}
+.tenants{display:flex;gap:8px;margin-top:10px}
+.tenants i{width:34px;height:34px;border-radius:10px;border:1px solid rgba(125,211,252,.35);background:rgba(14,165,233,.15);animation:pulse 2s ease-in-out infinite}
+.tenants i:nth-child(2){animation-delay:.4s}.tenants i:nth-child(3){animation-delay:.8s}
+.glow-ring{position:absolute;inset:12% 10%;border-radius:50%;border:1px dashed rgba(125,211,252,.18);animation:spin 40s linear infinite}
+
+/* ticker */
+.ticker{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.02);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.ticker .track{display:flex;gap:44px;width:max-content;padding:18px 0;animation:marq 38s linear infinite}
+.ticker span{font:600 15px Inter,sans-serif;color:var(--muted);white-space:nowrap;display:flex;align-items:center;gap:44px}
+.ticker span::after{content:"✦";color:var(--a2);font-size:11px}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* scroll progress + cue */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,var(--a1),var(--a2));box-shadow:0 0 12px rgba(125,211,252,.7)}
+.cue{display:flex;align-items:center;gap:10px;margin-top:28px;color:var(--dim);font-size:13px}
+.cue i{width:22px;height:34px;border:2px solid var(--dim);border-radius:12px;position:relative}
+.cue i::after{content:"";position:absolute;left:50%;top:6px;width:4px;height:7px;margin-left:-2px;border-radius:2px;background:var(--a1);animation:wheel 1.6s ease-in-out infinite}
+@keyframes wheel{to{transform:translateY(10px);opacity:0}}
+
 /* sections */
 section{padding:110px 0}
 .kicker{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--a1);letter-spacing:.08em;text-transform:uppercase}
@@ -100,33 +147,75 @@ h2{font-size:clamp(32px,4.6vw,54px);line-height:1.08;letter-spacing:-.035em;font
 .card h4{font-size:17px;letter-spacing:-.01em;margin-bottom:6px}
 .card p{color:var(--muted);font-size:14.5px}
 
-/* demos */
-.demos{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:48px}
-@media (max-width:900px){.demos{grid-template-columns:1fr}}
-.demo{padding:28px}
-.demo h3{font-size:22px;letter-spacing:-.02em;margin-bottom:6px}
-.demo p.d{color:var(--muted);font-size:14.5px;margin-bottom:18px}
-.field{display:flex;gap:10px;align-items:center;margin-bottom:16px}
-.field input{flex:1;background:rgba(0,0,0,.25);border:1px solid var(--line);color:var(--ink);border-radius:12px;padding:12px 14px;font:600 18px "JetBrains Mono",monospace;outline:none}
-.field input:focus{border-color:var(--a1);box-shadow:0 0 0 3px rgba(125,211,252,.15)}
-.row{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-radius:12px;background:rgba(0,0,0,.22);border:1px solid var(--line);margin-bottom:8px;font-family:"JetBrains Mono",monospace;font-size:14px}
-.row .k{color:var(--muted)}
-.row.bad .v{color:var(--bad)} .row.good .v{color:var(--a3)}
-.verdict{margin-top:10px;font-size:14px;color:var(--muted);min-height:22px}
-.verdict b{color:var(--bad)}
-.chain{display:flex;flex-direction:column;gap:8px}
-.entry{display:grid;grid-template-columns:28px 1fr auto;gap:10px;align-items:center;padding:10px 12px;border-radius:12px;background:rgba(0,0,0,.22);border:1px solid var(--line);transition:.25s}
-.entry .no{font:600 12px "JetBrains Mono",monospace;color:var(--dim)}
-.entry input{width:100%;background:transparent;border:0;color:var(--ink);font:500 14px Inter,sans-serif;outline:none;border-bottom:1px dashed transparent}
-.entry input:focus{border-bottom-color:var(--a1)}
-.entry .h{font:12px "JetBrains Mono",monospace;color:var(--a3)}
-.entry.broken{border-color:rgba(251,113,133,.6);background:rgba(251,113,133,.08)}
-.entry.broken .h{color:var(--bad)}
-.link{height:10px;margin-left:24px;border-left:2px solid rgba(52,211,153,.5)}
-.link.broken{border-left-color:var(--bad)}
-.minibtns{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
-.minibtns button{cursor:pointer;font:600 13px Inter,sans-serif;color:var(--ink);background:var(--glass2);border:1px solid var(--line);padding:8px 12px;border-radius:10px}
-.minibtns button:hover{border-color:var(--a1)}
+/* showcase */
+.show{margin-top:48px;padding:0;overflow:hidden;position:relative}
+.show::before{content:"";position:absolute;inset:-30%;background:radial-gradient(40% 40% at 20% 30%,rgba(37,99,235,.28),transparent 70%),radial-gradient(35% 35% at 80% 70%,rgba(124,58,237,.28),transparent 70%);filter:blur(30px);z-index:0;animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(4%,-3%) scale(1.05)}}
+.winbar{position:relative;z-index:1;display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.03)}
+.winbar i{width:11px;height:11px;border-radius:50%;background:#fb7185}.winbar i:nth-child(2){background:#fbbf24}.winbar i:nth-child(3){background:#34d399}
+.winbar span{margin-left:12px;font:500 13px "JetBrains Mono",monospace;color:var(--dim)}
+.winbar .live{margin-left:auto;display:flex;align-items:center;gap:8px;font:600 12px Inter,sans-serif;color:var(--a3)}
+.winbar .live b{width:8px;height:8px;border-radius:50%;background:var(--a3);box-shadow:0 0 10px var(--a3);animation:pulse 1.4s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.3}}
+.stage{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.05fr 1.15fr;gap:22px;padding:30px}
+@media (max-width:960px){.stage{grid-template-columns:1fr}}
+.step{position:relative}
+.step .lbl{display:flex;align-items:center;gap:10px;font:600 12px "JetBrains Mono",monospace;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
+.step .lbl em{font-style:normal;width:24px;height:24px;border-radius:8px;display:grid;place-items:center;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;font-size:12px;box-shadow:0 0 18px rgba(124,58,237,.5)}
+.step.active .lbl{color:var(--ink)}
+
+/* the paper */
+.paper{position:relative;border-radius:16px;padding:18px;background:linear-gradient(180deg,#f8fafc,#e2e8f0);color:#0f172a;min-height:300px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.45);transform:perspective(900px) rotateY(8deg) rotateX(3deg);transition:transform .6s}
+.show:hover .paper{transform:perspective(900px) rotateY(0) rotateX(0)}
+.paper h5{font:800 13px Inter,sans-serif;letter-spacing:.12em;color:#1e3a8a;display:flex;justify-content:space-between}
+.paper h5 small{font:600 11px "JetBrains Mono",monospace;color:#475569;letter-spacing:0}
+.paper .pl{height:8px;border-radius:4px;background:#cbd5e1;margin:9px 0}
+.paper .pg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.paper .pc{border:1px solid #cbd5e1;border-radius:8px;padding:8px}
+.paper .pc b{display:block;font:700 9px Inter,sans-serif;color:#64748b;letter-spacing:.08em;text-transform:uppercase}
+.paper .pc span{font:700 13px "JetBrains Mono",monospace;color:#0f172a}
+.paper .pc.hl{transition:background .3s,border-color .3s}
+.paper .pc.hl.lit{background:rgba(59,130,246,.15);border-color:#3b82f6}
+.beam{position:absolute;left:0;right:0;height:60px;top:-60px;background:linear-gradient(180deg,transparent,rgba(56,189,248,.35),rgba(56,189,248,.9) 92%,transparent);mix-blend-mode:multiply;pointer-events:none;opacity:0}
+.scanning .beam{animation:scan 1.8s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes scan{0%{top:-60px;opacity:1}100%{top:100%;opacity:1}}
+
+/* extracted fields */
+.fields{display:flex;flex-direction:column;gap:10px}
+.fx{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--line);opacity:0;transform:translateX(-18px) scale(.97);transition:opacity .45s,transform .45s cubic-bezier(.2,.9,.3,1.3),border-color .45s,box-shadow .45s}
+.fx.on{opacity:1;transform:none;border-color:rgba(125,211,252,.35);box-shadow:0 0 0 1px rgba(125,211,252,.08),0 8px 24px rgba(37,99,235,.18)}
+.fx .k{font-size:12.5px;color:var(--muted)}
+.fx .v{font:600 14px "JetBrains Mono",monospace;color:var(--ink)}
+.fx .c{font:600 11px "JetBrains Mono",monospace;color:var(--a3);padding:3px 7px;border-radius:6px;background:rgba(52,211,153,.12)}
+.ai{display:flex;align-items:center;gap:10px;margin-top:4px;font-size:12.5px;color:var(--muted)}
+.ai .dots{display:flex;gap:4px}.ai .dots i{width:6px;height:6px;border-radius:50%;background:var(--a2);animation:bounce 1s infinite}
+.ai .dots i:nth-child(2){animation-delay:.15s}.ai .dots i:nth-child(3){animation-delay:.3s}
+@keyframes bounce{50%{transform:translateY(-5px);opacity:.4}}
+
+/* email + ledger */
+.mail{border-radius:16px;background:rgba(10,18,40,.75);border:1px solid var(--line);overflow:hidden}
+.mail .mh{padding:12px 14px;border-bottom:1px solid var(--line);font-size:12.5px;color:var(--muted);display:grid;gap:4px}
+.mail .mh b{color:var(--ink);font-weight:600}
+.mail .mb{padding:14px;min-height:150px;font-size:14px;color:#dbe6ff;white-space:pre-wrap;line-height:1.65}
+.caret{display:inline-block;width:2px;height:1.05em;background:var(--a1);vertical-align:-2px;margin-left:1px;animation:pulse .9s steps(1) infinite}
+.send{display:flex;justify-content:flex-end;padding:0 14px 14px}
+.send span{font:600 12.5px Inter,sans-serif;padding:8px 14px;border-radius:10px;background:linear-gradient(135deg,#2563eb,#7c3aed);opacity:.35;transition:opacity .4s,box-shadow .4s}
+.send span.ready{opacity:1;box-shadow:0 8px 24px rgba(79,70,229,.5)}
+.post{margin-top:12px;display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:12px 14px;border-radius:14px;border:1px solid rgba(52,211,153,.3);background:rgba(52,211,153,.08);opacity:0;transform:translateY(10px);transition:.5s}
+.post.on{opacity:1;transform:none}
+.post .tick{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--a3);color:#052e1f;font-weight:800}
+.post .t{font-size:13px;color:#cbd6f0}.post .t b{color:var(--ink)}
+.post .h{font:12px "JetBrains Mono",monospace;color:var(--a3)}
+
+/* KPI strip */
+.kpis{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line)}
+@media (max-width:760px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:rgba(8,14,32,.85);padding:18px 22px}
+.kpi .l{font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:.08em}
+.kpi .n{font-size:26px;font-weight:800;letter-spacing:-.02em;margin-top:4px;transition:color .4s}
+.kpi .n.bump{color:var(--a1)}
+.kpi svg{width:100%;height:28px;margin-top:6px}
+.kpi path{fill:none;stroke:url(#spark);stroke-width:2;stroke-linecap:round}
 
 /* other work */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:48px}
@@ -186,7 +275,7 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;text-align:center}
   <a class="brand" href="#top"><i>AB</i>Abdul Basit</a>
   <ul>
     <li><a href="#work">Work</a></li>
-    <li><a href="#demos">Live demos</a></li>
+    <li><a href="#how">See it work</a></li>
     <li><a href="#oss">Open source</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -194,16 +283,29 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;text-align:center}
   <a class="cta" href="#contact">Contact</a>
 </nav>
 
+<div class="progress" id="prog" aria-hidden="true"></div>
 <header id="top">
   <div class="wrap">
+   <div class="hero-grid">
+   <div>
     <span class="eyebrow rv"><b></b>Tech Lead · Senior Full-Stack Engineer · Founder &amp; CTO</span>
     <h1 class="rv"><span class="grad">I build systems<br>that run businesses.</span></h1>
     <p class="lede rv">From the <strong>ledger</strong> to the <strong>LLM</strong>. 12+ years shipping web products — most recently a multi-tenant <strong>CRM + ERP + HRM</strong> platform with AI document parsing and a tamper-evident accounting core, designed, built and operated end to end.</p>
     <div class="actions rv">
-      <a class="btn primary" href="#work">See the work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn primary" href="#how">See it work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn ghost" href="https://github.com/abdulbasit264" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>GitHub</a>
       <a class="btn ghost" href="https://www.linkedin.com/in/imabdulbasit" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
     </div>
+    <div class="cue rv"><i></i>Scroll to see it work</div>
+   </div>
+   <div class="hero-vis rv" id="vis" aria-hidden="true">
+     <div class="glow-ring"></div>
+     <div class="hc glass c1" data-depth="18"><div class="t">Invoiced this month</div><div class="big">$184,250 <span class="up">▲ live</span></div><div class="bars"><i style="height:35%"></i><i style="height:52%;animation-delay:.1s"></i><i style="height:44%;animation-delay:.2s"></i><i style="height:68%;animation-delay:.3s"></i><i style="height:60%;animation-delay:.4s"></i><i style="height:82%;animation-delay:.5s"></i><i style="height:100%;animation-delay:.6s"></i></div></div>
+     <div class="hc glass c2" data-depth="34"><div class="doc"><span class="ico"></span><div><div class="t">AI reading waybill</div><div class="row2" style="color:var(--ink);font-weight:600">AWB 176-48213907</div></div></div><div class="chips"><span>DXB → LHR</span><span>24 pcs</span><span>418.5 kg</span><span>EK 001</span></div></div>
+     <div class="hc glass c3" data-depth="26"><div class="row2"><span class="shield">✓</span><div><div class="t">Ledger integrity</div><div style="color:var(--ink);font-weight:700">Hash chain verified</div></div></div></div>
+     <div class="hc glass c4" data-depth="12"><div class="t">Tenants · own DB each</div><div class="tenants"><i></i><i></i><i></i></div></div>
+   </div>
+   </div>
     <div class="stats">
       <div class="stat glass rv"><div class="n" data-count="12" data-suffix="+">12+</div><div class="l">years shipping software</div></div>
       <div class="stat glass rv"><div class="n" data-count="3">3</div><div class="l">production platforms I run</div></div>
@@ -213,9 +315,73 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;text-align:center}
   </div>
 </header>
 
+<div class="ticker" aria-hidden="true"><div class="track"><span>Laravel</span><span>PostgreSQL</span><span>Python</span><span>Django</span><span>LLMs</span><span>Multi-tenant SaaS</span><span>Double-entry ledger</span><span>React</span><span>Node.js</span><span>Docker</span><span>Redis</span><span>Cloudflare</span><span>MCP servers</span><span>System design</span><span>Technical leadership</span><span>Laravel</span><span>PostgreSQL</span><span>Python</span><span>Django</span><span>LLMs</span><span>Multi-tenant SaaS</span><span>Double-entry ledger</span><span>React</span><span>Node.js</span><span>Docker</span><span>Redis</span><span>Cloudflare</span><span>MCP servers</span><span>System design</span><span>Technical leadership</span></div></div>
+
+<section id="how">
+  <div class="wrap">
+    <div class="kicker rv">01 — See it work</div>
+    <h2 class="rv">From a photo of a waybill to a posted invoice.</h2>
+    <p class="sub rv">The core flow: the AI reads the document, drafts the pre-alert to the agent, and the ledger posts the charges. A person reviews before anything is sent.</p>
+
+    <figure class="show glass rv" id="show" aria-label="Animated walkthrough of the platform: an air waybill is scanned, fields are extracted, an email is drafted and the ledger posts">
+      <div class="winbar" aria-hidden="true"><i></i><i></i><i></i><span>app.globalgates · shipments / new</span><span class="live"><b></b>LIVE</span></div>
+
+      <div class="stage">
+        <div class="step" id="s1">
+          <div class="lbl"><em>1</em>Upload</div>
+          <div class="paper" id="paper">
+            <div class="beam"></div>
+            <h5>AIR WAYBILL <small>176-48213907</small></h5>
+            <div class="pl" style="width:78%"></div><div class="pl" style="width:56%"></div>
+            <div class="pg">
+              <div class="pc hl" data-f="0"><b>Origin</b><span>DXB</span></div>
+              <div class="pc hl" data-f="1"><b>Destination</b><span>LHR</span></div>
+              <div class="pc hl" data-f="2"><b>Pieces</b><span>24</span></div>
+              <div class="pc hl" data-f="3"><b>Gross weight</b><span>418.5 kg</span></div>
+              <div class="pc hl" data-f="4"><b>Flight</b><span>EK 001</span></div>
+              <div class="pc hl" data-f="5"><b>Consignee</b><span>Northwind Ltd</span></div>
+            </div>
+            <div class="pl" style="width:64%;margin-top:14px"></div><div class="pl" style="width:42%"></div>
+          </div>
+        </div>
+
+        <div class="step" id="s2">
+          <div class="lbl"><em>2</em>AI extracts</div>
+          <div class="fields">
+            <div class="fx" data-f="0,1"><span><span class="k">Route</span><br><span class="v">DXB → LHR</span></span><span class="c">99%</span></div>
+            <div class="fx" data-f="2,3"><span><span class="k">Pieces · weight</span><br><span class="v">24 · 418.5 kg</span></span><span class="c">98%</span></div>
+            <div class="fx" data-f="4"><span><span class="k">Flight</span><br><span class="v">EK 001 · 14 Nov</span></span><span class="c">97%</span></div>
+            <div class="fx" data-f="5"><span><span class="k">Consignee → agent</span><br><span class="v">Northwind · UK agent</span></span><span class="c">96%</span></div>
+          </div>
+          <div class="ai" id="ai"><span class="dots"><i></i><i></i><i></i></span><span id="aitxt">Reading document…</span></div>
+        </div>
+
+        <div class="step" id="s3">
+          <div class="lbl"><em>3</em>Email + ledger</div>
+          <div class="mail">
+            <div class="mh"><span>To <b>ops@uk-agent.example</b></span><span>Subject <b>Pre-alert · AWB 176-48213907 · DXB → LHR</b></span></div>
+            <div class="mb"><span id="typed"></span><span class="caret"></span></div>
+            <div class="send"><span id="sendbtn">Review &amp; send</span></div>
+          </div>
+          <div class="post" id="post"><span class="tick">✓</span><span class="t"><b>Invoice posted</b> · Dr AR / Cr Sales · balanced</span><span class="h" id="posthash">a91f…</span></div>
+        </div>
+      </div>
+
+      <div class="kpis">
+        <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="spark" x1="0" x2="1"><stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#a78bfa"/></linearGradient></defs></svg>
+        <div class="kpi"><div class="l">Shipments today</div><div class="n" id="k1">37</div><svg viewBox="0 0 100 28" aria-hidden="true"><path d="M0 22 L14 18 L28 20 L42 12 L56 15 L70 8 L84 10 L100 4"/></svg></div>
+        <div class="kpi"><div class="l">Fields extracted</div><div class="n">6 / 6</div><svg viewBox="0 0 100 28" aria-hidden="true"><path d="M0 4 L14 7 L28 6 L42 13 L56 15 L70 19 L84 21 L100 23"/></svg></div>
+        <div class="kpi"><div class="l">Invoiced this month</div><div class="n" id="k3">$184,250</div><svg viewBox="0 0 100 28" aria-hidden="true"><path d="M0 24 L14 21 L28 22 L42 16 L56 12 L70 13 L84 7 L100 3"/></svg></div>
+        <div class="kpi"><div class="l">Ledger integrity</div><div class="n" style="color:var(--a3)">Verified</div><svg viewBox="0 0 100 28" aria-hidden="true"><path d="M0 14 L100 14"/></svg></div>
+      </div>
+    </figure>
+    <p class="rv" style="color:var(--dim);font-size:13px;margin-top:12px">Illustration with sample data. The real platform runs on private infrastructure.</p>
+  </div>
+</section>
+
 <section id="work">
   <div class="wrap">
-    <div class="kicker rv">01 — Flagship</div>
+    <div class="kicker rv">02 — Flagship</div>
     <h2 class="rv">A logistics company's whole back office, in one platform.</h2>
     <p class="sub rv">Built for GlobalGates Logistics: it started as an AI assistant for shipment emails and grew into a multi-tenant CRM + ERP + HRM that runs the business.</p>
 
@@ -250,32 +416,6 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;text-align:center}
       <div class="card glass rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M16 11l2 2 4-4"/></svg></div><h4>CRM + HRM</h4><p>Leads, pipeline and lists alongside employees, leave, attendance and payroll, with field-level change history on every record.</p></div>
       <div class="card glass rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><h4>Security by design</h4><p>Database-per-tenant isolation, SSO/SCIM, role and row-level access, encrypted secrets with key rotation, and GDPR erasure that anonymises the history too.</p></div>
       <div class="card glass rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 12h4l3-8 4 16 3-8h2"/></svg></div><h4>Operated, not just built</h4><p>One-command idempotent deploys, fleet schema health checks, point-in-time recovery with monthly restore drills, and a REST API with idempotency keys plus an MCP server.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="demos">
-  <div class="wrap">
-    <div class="kicker rv">02 — Try it</div>
-    <h2 class="rv">Two ideas from the ledger, live in your browser.</h2>
-    <p class="sub rv">These run on this page. They show two problems the accounting core solves.</p>
-    <div class="demos">
-      <div class="demo glass rv">
-        <h3>Floats are not money</h3>
-        <p class="d">Type an amount. The left column scales it the way most code does; the right one parses the digits exactly.</p>
-        <div class="field"><input id="amt" type="text" value="19.99" inputmode="decimal" aria-label="Amount"></div>
-        <div class="row bad" id="r1"><span class="k">Math.trunc(x * 10000)</span><span class="v" id="v1">—</span></div>
-        <div class="row good"><span class="k">exact scale(x)</span><span class="v" id="v2">—</span></div>
-        <div class="verdict" id="verdict"></div>
-        <div class="minibtns"><button type="button" data-try="19.99">19.99</button><button type="button" data-try="0.57">0.57</button><button type="button" data-try="1.005">1.005</button><button type="button" data-try="4.35">4.35</button></div>
-      </div>
-      <div class="demo glass rv">
-        <h3>A journal that notices edits</h3>
-        <p class="d">Each entry is hashed together with the one before it. Edit any description and watch the chain break from that point on.</p>
-        <div class="chain" id="chain"></div>
-        <div class="verdict" id="cverdict"></div>
-        <div class="minibtns"><button type="button" id="tamper">Tamper with entry 2</button><button type="button" id="reset">Reset</button></div>
-      </div>
     </div>
   </div>
 </section>
@@ -376,67 +516,82 @@ const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
 document.getElementById('yr').textContent = new Date().getFullYear();
 
-// demo 1: floats vs exact
-function exactScale(s) {
-  const m = /^([+-]?)(\d*)(?:\.(\d*))?$/.exec(s.trim());
-  if (!m) return null;
-  const frac = m[3] || '';
-  let v = BigInt(m[2] || '0') * 10000n + BigInt((frac.slice(0, 4) + '0000').slice(0, 4));
-  if ((+frac[4] || 0) >= 5) v += 1n;
-  return (m[1] === '-' ? -v : v).toString();
-}
-function runAmount() {
-  const raw = document.getElementById('amt').value;
-  const exact = exactScale(raw), naive = Math.trunc(parseFloat(raw) * 10000);
-  const v1 = document.getElementById('v1'), v2 = document.getElementById('v2'), out = document.getElementById('verdict'), r1 = document.getElementById('r1');
-  if (exact === null || isNaN(naive)) { v1.textContent = v2.textContent = '—'; out.textContent = 'Enter a plain decimal like 19.99'; return; }
-  v1.textContent = naive; v2.textContent = exact;
-  const lost = String(naive) !== exact;
-  r1.className = 'row ' + (lost ? 'bad' : 'good');
-  out.innerHTML = lost ? `<b>Off by ${Math.abs(Number(BigInt(exact) - BigInt(naive)))}</b> ten-thousandth. Small, silent, and it never reconciles.` : 'These match — try 19.99, 0.57 or 1.005.';
-}
-document.getElementById('amt').addEventListener('input', runAmount);
-document.querySelectorAll('[data-try]').forEach(b => b.addEventListener('click', () => { document.getElementById('amt').value = b.dataset.try; runAmount(); }));
-runAmount();
+// showcase: scan → extract → draft → post, looping while on screen
+(() => {
+  const show = document.getElementById('show');
+  const paper = document.getElementById('paper');
+  const fx = [...show.querySelectorAll('.fx')];
+  const typed = document.getElementById('typed');
+  const send = document.getElementById('sendbtn');
+  const post = document.getElementById('post');
+  const ai = document.getElementById('aitxt');
+  const k1 = document.getElementById('k1'), k3 = document.getElementById('k3');
+  const steps = ['s1', 's2', 's3'].map(id => document.getElementById(id));
+  const mail = 'Hi team,\n\nPlease find the pre-alert for AWB 176-48213907: 24 pcs / 418.5 kg on EK 001, DXB → LHR, consignee Northwind Ltd.\n\nDocuments attached. Kindly confirm receipt.\n\nRegards,\nGlobalGates Ops';
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+  let shipments = 37, invoiced = 184250, running = false, visible = false;
 
-// demo 2: hash chain
-const seed = ['Invoice INV-1 · Dr AR 1000 / Cr Sales 1000', 'Payment · Dr Cash 600 / Cr AR 600', 'Payment · Dr Cash 400 / Cr AR 400', 'Commission · Dr Expense 50 / Cr Payable 50'];
-let posted = [];
-const enc = new TextEncoder();
-async function sha(s) {
-  if (!(window.crypto && crypto.subtle)) { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) >>> 0; return h.toString(16).padStart(8, '0').repeat(8); }
-  const b = await crypto.subtle.digest('SHA-256', enc.encode(s));
-  return [...new Uint8Array(b)].map(x => x.toString(16).padStart(2, '0')).join('');
-}
-async function post(texts) { posted = []; let prev = ''; for (const t of texts) { const h = await sha(prev + '\n' + t); posted.push({ text: t, prev, hash: h }); prev = h; } }
-function render() {
-  const el = document.getElementById('chain'); el.innerHTML = '';
-  posted.forEach((e, i) => {
-    if (i) { const l = document.createElement('div'); l.className = 'link'; l.id = 'l' + i; el.appendChild(l); }
-    const d = document.createElement('div'); d.className = 'entry'; d.id = 'e' + i;
-    d.innerHTML = `<span class="no">#${i + 1}</span><input type="text" value="${e.text.replace(/"/g, '&quot;')}" aria-label="Entry ${i + 1}"><span class="h">${e.hash.slice(0, 8)}</span>`;
-    d.querySelector('input').addEventListener('input', verify);
-    el.appendChild(d);
-  });
-  verify();
-}
-async function verify() {
-  let prev = '', broken = -1;
-  for (let i = 0; i < posted.length; i++) {
-    const text = document.querySelector(`#e${i} input`).value;
-    const h = await sha(prev + '\n' + text);
-    const ok = broken < 0 && posted[i].prev === prev && h === posted[i].hash;
-    if (!ok && broken < 0) broken = i;
-    document.getElementById('e' + i).classList.toggle('broken', broken >= 0 && i >= broken);
-    if (i) document.getElementById('l' + i).classList.toggle('broken', broken >= 0 && i >= broken);
-    document.querySelector(`#e${i} .h`).textContent = (broken >= 0 && i >= broken ? '✗ ' : '') + h.slice(0, 8);
-    prev = posted[i].hash;
+  const lit = (fs, on) => fs.split(',').forEach(f => paper.querySelectorAll(`[data-f="${f}"]`).forEach(c => c.classList.toggle('lit', on)));
+  const active = i => steps.forEach((s, j) => s.classList.toggle('active', i === j));
+  const hex = () => [...crypto.getRandomValues(new Uint8Array(4))].map(b => b.toString(16).padStart(2, '0')).join('');
+
+  function reset() {
+    paper.classList.remove('scanning');
+    fx.forEach(f => f.classList.remove('on'));
+    paper.querySelectorAll('.lit').forEach(c => c.classList.remove('lit'));
+    typed.textContent = ''; send.classList.remove('ready'); post.classList.remove('on');
+    ai.textContent = 'Reading document…';
   }
-  document.getElementById('cverdict').innerHTML = broken < 0 ? 'Chain intact: every hash matches what was posted.' : `<b>Tampering detected at entry #${broken + 1}.</b> Everything after it is untrusted until reviewed.`;
+
+  function finalState() {
+    fx.forEach(f => f.classList.add('on')); typed.textContent = mail;
+    send.classList.add('ready'); post.classList.add('on'); ai.textContent = 'Extracted 6 fields in 1.8 s';
+  }
+
+  async function cycle() {
+    reset(); active(0);
+    void paper.offsetWidth; paper.classList.add('scanning');
+    await wait(1900);
+    active(1);
+    for (const f of fx) { const n = f.dataset.f; lit(n, true); f.classList.add('on'); await wait(380); lit(n, false); }
+    ai.textContent = 'Extracted 6 fields in 1.8 s';
+    await wait(400);
+    active(2);
+    for (let i = 0; i <= mail.length; i += 2) { typed.textContent = mail.slice(0, i); await wait(16); }
+    typed.textContent = mail; send.classList.add('ready');
+    await wait(500);
+    document.getElementById('posthash').textContent = hex() + '…';
+    post.classList.add('on');
+    shipments++; invoiced += 1840;
+    k1.textContent = shipments; k3.textContent = '$' + invoiced.toLocaleString('en-US');
+    [k1, k3].forEach(k => { k.classList.add('bump'); setTimeout(() => k.classList.remove('bump'), 900); });
+    await wait(3200);
+  }
+
+  async function loop() {
+    if (running) return; running = true;
+    while (visible) await cycle();
+    running = false;
+  }
+
+  if (still) { finalState(); return; }
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) loop(); }, { threshold: .35 }).observe(show);
+})();
+
+
+// scroll progress
+const prog = document.getElementById('prog');
+addEventListener('scroll', () => { const h = document.documentElement; prog.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%'; }, { passive: true });
+
+// hero parallax
+const vis = document.getElementById('vis');
+if (vis && !matchMedia('(prefers-reduced-motion: reduce)').matches && matchMedia('(pointer:fine)').matches) {
+  addEventListener('mousemove', e => {
+    const x = e.clientX / innerWidth - .5, y = e.clientY / innerHeight - .5;
+    vis.querySelectorAll('[data-depth]').forEach(c => { const d = +c.dataset.depth; c.style.transform = `translate(${-x * d}px, ${-y * d}px)`; });
+  }, { passive: true });
 }
-document.getElementById('tamper').addEventListener('click', () => { const i = document.querySelector('#e1 input'); i.value = 'Payment · Dr Cash 60 / Cr AR 60'; verify(); });
-document.getElementById('reset').addEventListener('click', render);
-post(seed).then(render);
 
 // count-up
 document.querySelectorAll('[data-count]').forEach(el => {
