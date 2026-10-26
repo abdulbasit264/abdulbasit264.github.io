@@ -1,0 +1,35 @@
+name: check
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: '0 6 * * 1'   # weekly: catch links that die after publishing
+  workflow_dispatch:
+
+jobs:
+  html:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: actions/setup-node@v4.1.0
+        with:
+          node-version: '22'
+      - name: Validate HTML
+        run: npx --yes html-validate@9.7.1 index.html
+
+  links:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2.0.2
+        with:
+          # LinkedIn answers every bot with HTTP 999; the font hosts are preconnect hints, not pages.
+          args: >-
+            --no-progress
+            --exclude 'linkedin\.com'
+            --exclude 'fonts\.(googleapis|gstatic)\.com'
+            --exclude-mail
+            index.html
+          fail: true
