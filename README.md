@@ -5,11 +5,12 @@
 
 Source of my portfolio, live at **[abdulbasit264.github.io](https://abdulbasit264.github.io)**.
 
-One hand-written `index.html`, with no framework, no build step and no images. Everything is HTML, CSS and SVG:
+One hand-written `index.html` plus a headshot, with no framework and no build step. The visuals are HTML, CSS and SVG:
 
-- **Hero:** floating glass product cards with mouse parallax.
-- **See it work:** an animated walkthrough of the platform's core flow. An air waybill is scanned, the AI extracts the fields, the pre-alert email types itself and the ledger posts the invoice. It uses sample data and respects `prefers-reduced-motion`.
-- The flagship case study, the other platforms, [exact-ledger](https://github.com/abdulbasit264/exact-ledger), experience and skills.
+- **Hero:** portrait in an animated gradient ring, with floating capability chips and mouse parallax.
+- **What I can do for you:** a bento grid of capabilities (AI, n8n automation, SaaS, ERP, operations, leadership).
+- **See it work:** an animated walkthrough of the platform's core flow. A waybill is scanned, fields are extracted, the email drafts itself and the ledger posts. It uses sample data and respects `prefers-reduced-motion`.
+- Project case studies with animated mock-ups, how I work, [exact-ledger](https://github.com/abdulbasit264/exact-ledger), experience and skills.
 
 ## Checks
 
