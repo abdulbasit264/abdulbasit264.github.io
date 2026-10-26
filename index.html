@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Abdul Basit · Tech Lead & Full-Stack Engineer</title>
+<title>Abdul Basit · Tech Lead &amp; Full-Stack Engineer</title>
 <meta name="description" content="Abdul Basit — tech lead and senior full-stack engineer. Founder & CTO of GlobalGates Logistics: a multi-tenant CRM + ERP + HRM SaaS with LLM document parsing and a tamper-evident ledger.">
 <meta property="og:title" content="Abdul Basit · Tech Lead & Full-Stack Engineer">
 <meta property="og:description" content="I build systems that run businesses — from the ledger to the LLM.">
@@ -263,18 +263,18 @@ footer{padding:40px 0 60px;color:var(--dim);font-size:13px;text-align:center}
       <div class="demo glass rv">
         <h3>Floats are not money</h3>
         <p class="d">Type an amount. The left column scales it the way most code does; the right one parses the digits exactly.</p>
-        <div class="field"><input id="amt" value="19.99" inputmode="decimal" aria-label="Amount"></div>
+        <div class="field"><input id="amt" type="text" value="19.99" inputmode="decimal" aria-label="Amount"></div>
         <div class="row bad" id="r1"><span class="k">Math.trunc(x * 10000)</span><span class="v" id="v1">—</span></div>
         <div class="row good"><span class="k">exact scale(x)</span><span class="v" id="v2">—</span></div>
         <div class="verdict" id="verdict"></div>
-        <div class="minibtns"><button data-try="19.99">19.99</button><button data-try="0.57">0.57</button><button data-try="1.005">1.005</button><button data-try="4.35">4.35</button></div>
+        <div class="minibtns"><button type="button" data-try="19.99">19.99</button><button type="button" data-try="0.57">0.57</button><button type="button" data-try="1.005">1.005</button><button type="button" data-try="4.35">4.35</button></div>
       </div>
       <div class="demo glass rv">
         <h3>A journal that notices edits</h3>
         <p class="d">Each entry is hashed together with the one before it. Edit any description and watch the chain break from that point on.</p>
         <div class="chain" id="chain"></div>
         <div class="verdict" id="cverdict"></div>
-        <div class="minibtns"><button id="tamper">Tamper with entry 2</button><button id="reset">Reset</button></div>
+        <div class="minibtns"><button type="button" id="tamper">Tamper with entry 2</button><button type="button" id="reset">Reset</button></div>
       </div>
     </div>
   </div>
@@ -414,7 +414,7 @@ function render() {
   posted.forEach((e, i) => {
     if (i) { const l = document.createElement('div'); l.className = 'link'; l.id = 'l' + i; el.appendChild(l); }
     const d = document.createElement('div'); d.className = 'entry'; d.id = 'e' + i;
-    d.innerHTML = `<span class="no">#${i + 1}</span><input value="${e.text.replace(/"/g, '&quot;')}" aria-label="Entry ${i + 1}"><span class="h">${e.hash.slice(0, 8)}</span>`;
+    d.innerHTML = `<span class="no">#${i + 1}</span><input type="text" value="${e.text.replace(/"/g, '&quot;')}" aria-label="Entry ${i + 1}"><span class="h">${e.hash.slice(0, 8)}</span>`;
     d.querySelector('input').addEventListener('input', verify);
     el.appendChild(d);
   });
