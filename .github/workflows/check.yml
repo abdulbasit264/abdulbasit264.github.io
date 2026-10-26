@@ -25,11 +25,13 @@ jobs:
       - name: Check links
         uses: lycheeverse/lychee-action@v2.0.2
         with:
-          # LinkedIn answers every bot with HTTP 999; the font hosts are preconnect hints, not pages.
+          # LinkedIn answers every bot with HTTP 999; the font hosts are preconnect hints, not pages;
+          # the site's own URL (og:image) is checked before Pages has deployed the commit, so it races.
           args: >-
             --no-progress
             --exclude 'linkedin\.com'
             --exclude 'fonts\.(googleapis|gstatic)\.com'
+            --exclude 'abdulbasit264\.github\.io'
             --exclude-mail
             index.html
           fail: true
